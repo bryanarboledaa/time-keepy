@@ -19,5 +19,5 @@ Tool Version:
 
 08/20/2022 - Bryan
 
-- setup devise, used this link as reference: https://github.com/heartcombo/devise
+- setup devise, used this link as guide: https://github.com/heartcombo/devise
 - generated a migration file for dropping existing users table (forgot that users table and model should be along with devise setup)
