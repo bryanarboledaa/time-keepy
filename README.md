@@ -12,8 +12,8 @@ Rails 7.0.3.1
 
 - generated controllers and views for static_pages
 - configured routes, setting root page to ```"static_pages#index```
-- generated a migration file for time_records table using this command: ```rails g migration CreateTimeRecord time_in:datetime time_out:datetime
-- generated a migration file for users table using this command: ```rails g migration CreateUser first_name:string last_name:string
+- generated a migration file for time_records table using this command: ```rails g migration CreateTimeRecord time_in:datetime time_out:datetime```
+- generated a migration file for users table using this command: ```rails g migration CreateUser first_name:string last_name:string```
 
 08/20/2022 - Bryan
 
