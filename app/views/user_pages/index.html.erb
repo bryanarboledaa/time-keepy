@@ -1,0 +1,13 @@
+<p>Hello P!</p>
+
+<p><%= link_to 'Add Time Records', user_form_path %></p>
+<%= button_to "Time In", user_time_in_path, method: 'post' %>
+</br>
+<%= button_to "Time Out", user_time_out_path, method: 'post' %>
+
+<% @time_records.each do |f| %>
+  <%= f.date.time.strftime("%B %d, %Y %A") %>
+  <%= f.time.time.strftime("%I:%M %p") %>
+  <%= f.log_type %>
+  <%= f.comment %> </br>
+<% end %>
