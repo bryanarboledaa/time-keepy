@@ -4,7 +4,8 @@ class CreateTimeRecords < ActiveRecord::Migration[7.0]
       t.integer "user_id"
       t.datetime "date"
       t.datetime "time"
-      t.string "log_type"
+      t.integer "log_type"
+      t.integer "status"
       t.string "comments"
       t.timestamps
     end

@@ -18,7 +18,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_123502) do
     t.integer "user_id"
     t.datetime "date"
     t.datetime "time"
-    t.string "log_type"
+    t.integer "log_type"
+    t.integer "status"
     t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
