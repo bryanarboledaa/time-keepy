@@ -1,0 +1,12 @@
+<p> Requests! </p>
+
+<% @requests.each do |f| %>
+  <%= f.created_at.time.strftime("%B %d") %>
+  <%= f.user.first_name %> <%= f.user.last_name %>
+  <%= f.log_type %>
+  <%= f.date.time.strftime("%B %d, %Y %A") %> <%= f.time.time.strftime("%I:%M %p") %>
+  <%= f.comment %>
+  <%= f.status %>
+  <%= button_to "Approve", user_approve_request_path(id: f.id), method: 'put' %>
+  <%= button_to "Reject", user_reject_request_path(id: f.id), method: 'put' %> </br>
+<% end %>

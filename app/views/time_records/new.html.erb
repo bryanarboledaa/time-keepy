@@ -1,0 +1,20 @@
+<%= form_with model: @user_form do |f| %>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+    </br>
+    </br>
+    <%= f.label :time %>
+    <%= f.time_field :time %>
+    </br>
+    </br>
+    <%= f.label :log_type %>
+    <%= f.select :log_type, [["Clock In", 'clock_in'], ["Clock Out", 'clock_out']] %>
+    </br>
+    </br>
+    <%= f.label :comments %>
+    <%= f.text_field :comments %>
+    </br>
+    </br>
+    <%= f.submit %>
+  <% end %>
+  

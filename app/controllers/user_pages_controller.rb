@@ -2,6 +2,7 @@ class UserPagesController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @user = User.all.find_by_id(current_user.id)
     @time_records = TimeRecord.all.where(user_id: current_user.id)
   end
 
@@ -17,27 +18,45 @@ class UserPagesController < ApplicationController
     @time_out.save
   end
 
-  def new
-    @time_record = TimeRecord.new
+  def members
+    @members = User.all.where(role: 0)
   end
 
-  def create
-    @time_record = TimeRecord.new(date: params[:date], time: params[:time], log_type: params[:log_type], comment: params[:comment], user_id: 1)
+  def add_member
+  end
 
-    if @time_record.save
-      redirect_to user_home_path
+  def create_member
+    @member = User.new(params.require(:user).permit(:first_name, :last_name, :email, :role, :password, :password_confirmation))
+
+    if @member.save
+      flash[:notice] = "Member successfully added"
+      redirect_to user_members_path
     else
+      flash[:error] = "Failed to add member"
       redirect_to :back
     end
   end
 
-  def destroy
+  def requests
+    @requests = TimeRecord.where(status: 0)
   end
 
-  private
+  def approve_request
+    @request = TimeRecord.find_by_id(params[:id])
+    @request.update(status: 1)
+    
+    return unless @request.save
 
-  def time_records_params
-    params.require(:time_record).permit(:time_in, :time_out, :user_id)
+    redirect_to user_requests_path
+  end
+
+  def reject_request
+    @request = TimeRecord.find_by_id(params[:id])
+    @request.update(status: 2)
+
+    return unless @request.save
+
+    redirect_to user_requests_path
   end
   
 end

@@ -15,6 +15,9 @@ gem "pg", "~> 1.1"
 # Devise gem
 gem "devise", "~> 4.8.1" 
 
+# Byebug gem
+gem 'byebug', '~> 9.0', '>= 9.0.6'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

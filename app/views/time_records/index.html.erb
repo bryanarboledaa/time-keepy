@@ -1,0 +1,11 @@
+<p>Time Records!</p>
+
+<p><%= link_to 'Add Time Records', time_records_form_path %></p>
+
+<% @time_records.each do |f| %>
+  <%= f.date.time.strftime("%B %d, %Y %A") %>
+  <%= f.time.time.strftime("%I:%M %p") %>
+  <%= f.log_type %>
+  <%= f.comment %>
+  <%= f.status %> </br>
+<% end %>

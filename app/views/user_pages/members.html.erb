@@ -1,0 +1,8 @@
+<p> Members! </p>
+
+<% @members.each do |t| %>
+  <%= t.first_name %>
+  <%= t.last_name %>
+<% end %>
+
+<%= link_to "Add Member", user_add_member_path %>

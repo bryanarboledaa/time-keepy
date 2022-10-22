@@ -82,5 +82,5 @@ test:
 production:
   <<: *default
   database: time_keepy
-  username: time_keepy
-  password: <%= ENV["TIME_KEEPY_DATABASE_PASSWORD"] %>
+  username: bryanarboledaa
+  password: Pass1234!
