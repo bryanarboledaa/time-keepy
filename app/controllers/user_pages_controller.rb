@@ -22,7 +22,7 @@ class UserPagesController < ApplicationController
   end
 
   def create
-    @time_record = TimeRecord.new(date: params[:date], time: params[:time], log_type: params[:log_type], comment: params[:comment], user_id: 1)
+    @time_record = TimeRecord.new(time_records_params)
 
     if @time_record.save
       redirect_to user_home_path
@@ -37,7 +37,7 @@ class UserPagesController < ApplicationController
   private
 
   def time_records_params
-    params.require(:time_record).permit(:time_in, :time_out, :user_id)
+    params.require(:time_records).permit(:date, :time, :log_type, :comments, :user_id)
   end
   
 end
