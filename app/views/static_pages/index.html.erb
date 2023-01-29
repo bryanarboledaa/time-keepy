@@ -19,8 +19,8 @@
             </svg>
           </button>
           <div class="hidden lg:ml-12 lg:block lg:space-x-14">
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Sign up</a>
-            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in</a>
+            <%= link_to 'Sign up', new_user_registration_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
+            <%= link_to 'Log in', new_user_session_path, class: "text-sm font-semibold leading-6 text-gray-900" %>
           </div>
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
@@ -56,10 +56,10 @@
 
       <div class="relative py-32 px-6 sm:py-40 lg:py-56 lg:px-8 lg:pr-0">
         <div class="mx-auto mt-16 max-w-2xl lg:mx-0 lg:max-w-xl">
-          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Data to enrich your online business</h1>
+          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">TimeKeepy</h1>
           <p class="mt-6 text-lg leading-8 text-gray-600">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
           <div class="mt-10 flex items-center gap-x-6">
-            <a href="#" class="rounded-md bg-yellow-400 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-yellow-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+            <%= link_to 'Get started', new_user_registration_path, class: "rounded-md bg-yellow-400 px-3.5 py-1.5 text-base font-semibold leading-7 text-white shadow-sm hover:bg-yellow-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
           </div>
         </div>
       </div>
