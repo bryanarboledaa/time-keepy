@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :time_records
 
   enum role: { member: 0, admin: 1 }
+  validates :email, uniqueness: true
 end

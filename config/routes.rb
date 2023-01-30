@@ -3,11 +3,13 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   root "static_pages#index"
   get 'static/home' => 'static_pages#index'
+  get 'static/get_time' => 'static_pages#get_time'
   get 'user/home' => 'user_pages#index'
   get 'user/form' => 'user_pages#new'
   post 'user/form' => 'user_pages#create'

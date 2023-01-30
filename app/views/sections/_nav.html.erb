@@ -1,5 +1,5 @@
 <nav class="bg-gray-800">
-  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+  <div class="mx-auto max-w-8xl px-2 sm:px-6 lg:px-8">
     <div class="relative flex h-16 items-center justify-between">
       <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
         <!-- Mobile menu button-->
@@ -28,16 +28,23 @@
         </button>
       </div>
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-        <div class="flex flex-shrink-0 items-center">
+        <div class="flex space-x-2 flex-shrink-0 items-center">
           <%= image_tag("557048.png", class: "block h-8 w-auto lg:hidden") %>
           <%= image_tag("557048.png", class: "hidden h-8 w-auto lg:block") %>
+          <%= link_to "TimeKeepy", root_path, class: "text-white text-sm font-medium" %>
         </div>
+      </div>
+
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <%= link_to "Home", root_path, class: "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" %>
-            <%= link_to "Sign up", new_user_registration_path, class: "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" %>
-            <%= link_to "Log in", new_user_session_path, class: "bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" %>
+            <% if current_user %>
+              <%= link_to "Sign out", destroy_user_session_path, class: "text-white px-3 py-2 rounded-md text-sm font-medium" %>
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path, class: "text-white px-3 py-2 rounded-md text-sm font-medium" %>
+              <%= link_to "Log in", new_user_session_path, class: "text-white px-3 py-2 rounded-md text-sm font-medium" %>
+            <% end %>
           </div>
         </div>
       </div>
