@@ -3,6 +3,7 @@ class UserPagesController < ApplicationController
 
   def index
     @time_records = TimeRecord.all.where(user_id: current_user.id)
+    @requests = TimeRecord.all
     @time = Time.now.strftime("%H:%M:%S ")
   end
 
@@ -12,11 +13,6 @@ class UserPagesController < ApplicationController
 
   def members
     @members = User.all
-  end
-
-  def get_time
-    @time = Time.now.strftime("%H:%M:%S ")
-    render partial: "/sections/date"
   end
 
   def time_in
