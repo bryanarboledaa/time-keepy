@@ -1,0 +1,5 @@
+<%- headers = ['Date', 'Email', 'First Name', 'Last Name', 'Log Type', 'Comments'] -%>
+<%= CSV.generate_line headers %>
+<%- @time_logs.each do |log| -%>
+  <%= CSV.generate_line([log.created_at, log['email'], log['first_name'], log['last_Name'], log['log_type'], log['comments'] ]) -%>
+<%- end -%>

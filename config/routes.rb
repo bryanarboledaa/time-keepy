@@ -15,5 +15,8 @@ Rails.application.routes.draw do
   post 'user/form' => 'user_pages#create'
   post 'user/time_in' => 'user_pages#time_in'
   post 'user/time_out' => 'user_pages#time_out'
+  get 'admin/requests' => 'user_pages#requests'
+  get 'admin/members' => 'user_pages#members'
+  get 'admin/export' => 'export_data#export_time_logs'
 
 end

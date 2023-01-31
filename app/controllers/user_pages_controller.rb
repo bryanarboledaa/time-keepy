@@ -6,6 +6,14 @@ class UserPagesController < ApplicationController
     @time = Time.now.strftime("%H:%M:%S ")
   end
 
+  def requests
+    @requests = TimeRecord.all
+  end
+
+  def members
+    @members = User.all
+  end
+
   def get_time
     @time = Time.now.strftime("%H:%M:%S ")
     render partial: "/sections/date"

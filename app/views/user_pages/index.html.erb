@@ -1,23 +1,10 @@
 <%= render partial: "/sections/nav" %>
 
-<div class="flex w-full">
-
-    <%= render partial: "/sections/sidebar" %>
-
-
-    <p>Hello P!</p>
-
-    <p><%= link_to 'Add Time Records', user_form_path %></p>
-    <%= button_to "Time In", user_time_in_path, method: 'post' %>
-    </br>
-    <%= button_to "Time Out", user_time_out_path, method: 'post' %>
-
-    <% @time_records.each do |f| %>
-      <%= f.date.time.strftime("%B %d, %Y %A") %>
-      <%= f.time.time.strftime("%I:%M %p") %>
-      <%= f.log_type %>
-      <%= f.comments %> </br>
-    <% end %>
-
-
-</div>
+  <div class="flex">
+    <div class="hidden sm:block">
+      <%= render partial: "/sections/sidebar" %>
+    </div>
+    <div class="flex flex-1 flex-col space-y-6 items-center justify-center mt-4 md:mt-0">
+      <%= render partial: "user_pages/sections/home" %>
+    </div>
+  </div>

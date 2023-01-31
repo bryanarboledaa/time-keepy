@@ -1,0 +1,10 @@
+<%= render partial: "/sections/nav" %>
+
+<div class="flex">
+  <div class="hidden sm:block">
+    <%= render partial: "/sections/sidebar" %>
+  </div>
+  <div class="flex flex-1 flex-col space-y-6 items-center justify-center mt-4 md:mt-0">
+    <%= render partial: "user_pages/sections/requests_data" %>
+  </div>
+</div>
