@@ -1,77 +1,55 @@
-<!--
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
--->
-<!--
-  This example requires updating your template:
+<%= render partial: "/user_pages/shared/nav" %>
 
-  ```
-  <html class="h-full bg-gray-50">
-  <body class="h-full"> 
-  ```
--->
-<%= render partial: "/sections/nav" %>
+<div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <%= image_tag("557048.png", class: "mx-auto h-12 w-auto" ) %>
+    <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up to TimeKeepy</h2>
+  </div>
 
-  <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <%= image_tag("557048.png", class: "mx-auto h-12 w-auto" ) %>
-      <h2 class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">Sign up to TimeKeepy</h2>
-    </div>
-
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-        <%= form_for(resource, as: resource_name, html: { class: "space-y-6" }, url: registration_path(resource_name)) do |f| %>
-          <%= render "devise/shared/error_messages", resource: resource %>
-          
-          <div>
-            <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= f.email_field :email, autocomplete: "email", required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-orange-700 focus:outline-none focus:ring-orange-700 sm:text-sm" %>
-            </div>
+  <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+      <%= form_for(resource, as: resource_name, html: { class: "space-y-6" }, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        
+        <div>
+          <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= f.email_field :email, autocomplete: "email", required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-orange-700 focus:outline-none focus:ring-orange-700 sm:text-sm" %>
           </div>
+        </div>
 
-          <div>
-            <%= f.label :first_name, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= f.text_field :first_name, autocomplete: "first_name", required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
-            </div>
+        <div>
+          <%= f.label :first_name, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= f.text_field :first_name, autocomplete: "first_name", required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
           </div>
+        </div>
 
-          <div>
-            <%= f.label :last_name, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= f.text_field :last_name, autocomplete: "last_name", required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
-            </div>
+        <div>
+          <%= f.label :last_name, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= f.text_field :last_name, autocomplete: "last_name", required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
           </div>
+        </div>
 
-          <div>
-            <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= f.password_field :password, required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
-            </div>
+        <div>
+          <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= f.password_field :password, required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
           </div>
+        </div>
 
-          <div>
-            <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
-            <div class="mt-1">
-              <%= f.password_field :password_confirmation, required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
-            </div>
+        <div>
+          <%= f.label :password_confirmation, class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= f.password_field :password_confirmation, required: true, class: "block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" %>
           </div>
+        </div>
 
-          <div>
-            <%= f.submit "Sign up", class: "flex w-full justify-center rounded-md border border-transparent bg-yellow-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
-          </div>
-        <% end %>
-      </div>
+        <div>
+          <%= f.submit "Sign up", class: "flex w-full justify-center rounded-md border border-transparent bg-yellow-400 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-yellow-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" %>
+        </div>
+      <% end %>
     </div>
   </div>
+</div>

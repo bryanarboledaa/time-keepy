@@ -1,10 +1,7 @@
-<%= render partial: "user_pages/shared/nav" %>
-
-<div class="flex">
-  <div class="flex">
-    <%= render partial: "user_pages/shared/sidebar" %>
-  </div>
-  <div class="flex flex-1 flex-col space-y-6 items-center mt-4 md:mt-0">
+<div class="flex h-screen flex-col overflow-hidden">
+  <%= render partial: "/user_pages/shared/nav" %>
+  <div class="flex h-[94%]">
+    <%= render partial: "/user_pages/shared/sidebar" %>
     <%= render partial: "user_pages/sections/home" %>
   </div>
 </div>
