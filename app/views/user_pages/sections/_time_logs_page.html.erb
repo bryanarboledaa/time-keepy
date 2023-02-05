@@ -1,10 +1,47 @@
-<%= form_with url: "/time_logs", method: :get do |f| %>
-  <%= f.select :user_id, User.pluck(:first_name), selected: current_user.id, :onchange => f.submit %>
-  <%= f.submit remote: true %>
+<%= form_with url: "/admin/time_logs", remote: true, method: :get do |f| %>
+  <% users_array = User.all.map { |user| [user.first_name, user.id] } %>
+  <%= f.select :user_id, options_for_select(users_array) %>
+  <%= f.submit %>
 <% end %>
 
-<div>
-  <% @time_logs.each do |log| %>
-    <%= log.user.first_name %>
-  <% end %>
+<div class="w-full px-12 p-4 overflow-scroll sm:px-6 lg:px-8">
+  <div class="sm:flex sm:items-center">
+    <div class="sm:flex-auto">
+      <h1 class="text-3xl font-semibold text-gray-900">Time Logs</h1>
+    </div>
+  </div>
+  <div class="mt-8 flex flex-col">
+    <div class="-my-2 -mx-4 sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 align-middle">
+        <div class="shadow-sm ring-1 ring-black ring-opacity-5">
+          <table class="min-w-full border-separate" style="border-spacing: 0">
+            <thead class="bg-gray-50">
+              <tr>
+                <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8">Date Submitted</th>
+                <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:table-cell">User</th>
+                <th scope="col" class="sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell">Log Type</th>
+                <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter">Date & Time</th>
+                <th scope="col" class="sticky top-0 z-10 border-b border-gray-300 bg-gray-50 bg-opacity-75 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter">Comments</th>
+              </tr>
+            </thead>
+            <% @time_logs.each do |log| %>
+              <tbody class="bg-white">     
+                <tr>
+                  <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= log.created_at.strftime("%B %d, %Y") %></td>
+                  <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell"><%= "#{log.user.first_name} #{log.user.last_name}" %></td>
+                  <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell"><%= log.log_type.eql?("clock_in") ? "Clock in" : "Clock out" %></td>
+                  <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500"><%= "#{log.date.strftime("%B %e, %Y %A")} #{log.time.strftime("%l:%M %p")}" %></td>
+                  <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500"><%= log.comments %></td>
+
+                 
+                </tr>
+                <!-- More people... -->
+              </tbody>
+            <% end %>
+          </table>
+         
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

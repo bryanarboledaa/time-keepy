@@ -8,8 +8,9 @@ class UserPagesController < ApplicationController
   end
 
   def time_logs
+    @all_users = User.all
     @user = User.find_by(id: params[:id])
-    @time_logs = TimeRecord.all.where(user_id: @user)
+    @time_logs = TimeRecord.all.where(user_id: params[:user_id])
 
   end
 

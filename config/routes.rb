@@ -20,6 +20,6 @@ Rails.application.routes.draw do
   get 'admin/export' => 'export_data#export_time_logs'
   put 'admin/approve_request' => 'user_pages#approve_time_log'
   put 'admin/reject_request' => 'user_pages#reject_time_log'
-  get 'admin_time_logs' => 'user_pages#time_logs'
+  get 'admin/time_logs' => 'user_pages#time_logs'
 
 end
