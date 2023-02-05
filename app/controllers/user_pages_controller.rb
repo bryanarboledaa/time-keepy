@@ -7,6 +7,12 @@ class UserPagesController < ApplicationController
     @time = Time.now.strftime("%H:%M:%S ")
   end
 
+  def time_logs
+    @user = User.find_by(id: params[:id])
+    @time_logs = TimeRecord.all.where(user_id: @user)
+
+  end
+
   def requests
     @requests = TimeRecord.all.page(params[:page])
   end
@@ -25,6 +31,33 @@ class UserPagesController < ApplicationController
     @time_out = TimeRecord.new(date: Date.current, time: Time.now, log_type: 1, user_id: current_user.id)
 
     @time_out.save
+  end
+
+  def approve_time_log
+    @time_log = TimeRecord.find_by(id: params[:id])
+
+    @time_log.update(status: 1)
+    if @time_log.save
+      flash[:notice] = "Time log successfully approved"
+      redirect_to admin_requests_path
+    else
+      flash[:error] = "Error approving time log"
+      redirect_to :back
+    end
+  end
+
+  def reject_time_log
+    @time_log = TimeRecord.find_by(id: params[:id])
+
+    @time_log.update(status: 2)
+
+    if @time_log.save
+      flash[:notice] = "Time log rejected"
+      redirect_to admin_requests_path
+    else
+      flash[:error] = "Error rejecting time log"
+      redirect_to :back
+    end
   end
 
   def new

@@ -1,0 +1,10 @@
+<%= form_with url: "/time_logs", method: :get do |f| %>
+  <%= f.select :user_id, User.pluck(:first_name), selected: current_user.id, :onchange => f.submit %>
+  <%= f.submit remote: true %>
+<% end %>
+
+<div>
+  <% @time_logs.each do |log| %>
+    <%= log.user.first_name %>
+  <% end %>
+</div>

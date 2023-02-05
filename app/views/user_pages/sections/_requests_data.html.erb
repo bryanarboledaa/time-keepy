@@ -28,8 +28,9 @@
                   <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500"><%= request.comments %></td>
 
                   <td class="relative space-x-2 whitespace-nowrap border-b border-gray-200 py-4 pr-4 pl-3 text-right text-sm font-medium sm:pr-6 lg:pr-8">
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Approve</a>
-                    <a href="#" class="text-indigo-600 hover:text-indigo-900">Reject</a>
+                    <%= button_to "Approve", admin_approve_request_path(id: request.id), method: :put, remote: true, class: "text-indigo-600 hover:text-indigo-900" %>
+                    <%= button_to "Reject", admin_reject_request_path(id: request.id), method: :put, remote: true, class: "text-indigo-600 hover:text-indigo-900" %>
+
                   </td>
                 </tr>
                 <!-- More people... -->
