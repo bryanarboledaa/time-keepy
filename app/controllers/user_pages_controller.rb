@@ -8,7 +8,7 @@ class UserPagesController < ApplicationController
   end
 
   def requests
-    @requests = TimeRecord.all
+    @requests = TimeRecord.all.page(params[:page])
   end
 
   def members

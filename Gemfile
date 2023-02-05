@@ -15,6 +15,9 @@ gem "pg", "~> 1.1"
 # Devise gem
 gem "devise", "~> 4.8.1"
 
+# Kaminari for pagination
+gem "kaminari"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

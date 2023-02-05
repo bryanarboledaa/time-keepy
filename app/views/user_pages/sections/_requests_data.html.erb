@@ -23,7 +23,7 @@
                 <tr>
                   <td class="whitespace-nowrap border-b border-gray-200 py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 lg:pl-8"><%= request.created_at.strftime("%B %d, %Y") %></td>
                   <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell"><%= "#{request.user.first_name} #{request.user.last_name}" %></td>
-                  <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell"><%= request.log_type ? "Clock in" : "Clock out" %></td>
+                  <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell"><%= request.log_type.eql?("clock_in") ? "Clock in" : "Clock out" %></td>
                   <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500"><%= "#{request.date.strftime("%B %e, %Y %A")} #{request.time.strftime("%l:%M %p")}" %></td>
                   <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500"><%= request.comments %></td>
 
@@ -36,6 +36,7 @@
               </tbody>
             <% end %>
           </table>
+          <%= paginate @requests %>
         </div>
       </div>
     </div>
