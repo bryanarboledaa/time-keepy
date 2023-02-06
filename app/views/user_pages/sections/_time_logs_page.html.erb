@@ -1,6 +1,7 @@
 <%= form_with url: "/admin/time_logs", remote: true, method: :get do |f| %>
-  <% users_array = User.all.map { |user| [user.first_name, user.id] } %>
-  <%= f.select :user_id, options_for_select(users_array) %>
+  <% users_array = User.all.map { |user| ["#{user.first_name} #{user.last_name}", user.id] } %>
+  <% current = User.all.map { |user| user.id == current_user.id } %>
+  <%= f.select :user_id, options_for_select(users_array), selected: current %>
   <%= f.submit %>
 <% end %>
 
@@ -31,9 +32,7 @@
                   <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden sm:table-cell"><%= "#{log.user.first_name} #{log.user.last_name}" %></td>
                   <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500 hidden lg:table-cell"><%= log.log_type.eql?("clock_in") ? "Clock in" : "Clock out" %></td>
                   <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500"><%= "#{log.date.strftime("%B %e, %Y %A")} #{log.time.strftime("%l:%M %p")}" %></td>
-                  <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500"><%= log.comments %></td>
-
-                 
+                  <td class="whitespace-nowrap border-b border-gray-200 px-3 py-4 text-sm text-gray-500"><%= log.comments %></td>       
                 </tr>
                 <!-- More people... -->
               </tbody>

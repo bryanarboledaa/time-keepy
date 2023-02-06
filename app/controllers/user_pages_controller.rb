@@ -9,13 +9,13 @@ class UserPagesController < ApplicationController
 
   def time_logs
     @all_users = User.all
+    @current = User.all.where(id: current_user.id)
     @user = User.find_by(id: params[:id])
     @time_logs = TimeRecord.all.where(user_id: params[:user_id])
-
   end
 
   def requests
-    @requests = TimeRecord.all.page(params[:page])
+    @requests = TimeRecord.all.page(params[:page]).order(created_at: :desc)
   end
 
   def members
