@@ -19,8 +19,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_123502) do
     t.datetime "date"
     t.datetime "time"
     t.integer "log_type"
-    t.integer "status"
-    t.string "comments"
+    t.integer "status", default: 0, null: false
+    t.string "comments", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_18_123502) do
     t.string "encrypted_password", default: "", null: false
     t.string "first_name"
     t.string "last_name"
+    t.integer "role", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

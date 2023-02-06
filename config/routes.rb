@@ -21,5 +21,7 @@ Rails.application.routes.draw do
   put 'admin/approve_request' => 'user_pages#approve_time_log'
   put 'admin/reject_request' => 'user_pages#reject_time_log'
   get 'admin/time_logs' => 'user_pages#time_logs'
+  get 'admin/new_member' => 'user_pages#new_member'
+  post 'admin/create_member' => 'user_pages#create_member'
 
 end

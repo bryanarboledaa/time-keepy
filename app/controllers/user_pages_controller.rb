@@ -22,6 +22,22 @@ class UserPagesController < ApplicationController
     @members = User.all
   end
 
+  def new_member
+    @user = User.new
+  end
+
+  def create_member
+    @user = User.new(member_params)
+
+    if @user.save
+      flash[:notice] = "Successfully created a member, email has been sent."
+      redirect_to admin_members_path
+    else
+      flash[:notice] = "Error creating a member"
+      redirect_to :back
+    end
+  end
+
   def time_in
     @time_in = TimeRecord.new(date: Date.current, time: Time.now, log_type: 0, user_id: current_user.id)
 
@@ -82,6 +98,10 @@ class UserPagesController < ApplicationController
 
   def time_records_params
     params.require(:time_records).permit(:date, :time, :log_type, :comments, :user_id)
+  end
+
+  def member_params
+    params.require(:user).permit(:email, :first_name, :last_name, :password, :password_confirmation, :role)
   end
   
 end

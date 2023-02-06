@@ -5,8 +5,8 @@ class CreateTimeRecords < ActiveRecord::Migration[7.0]
       t.datetime "date"
       t.datetime "time"
       t.integer "log_type"
-      t.integer "status"
-      t.string "comments"
+      t.integer "status", default: 0, null: false
+      t.string "comments", default: ""
       t.timestamps
     end
   end

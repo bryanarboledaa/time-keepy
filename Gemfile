@@ -12,8 +12,11 @@ gem "sprockets-rails"
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
-# Devise gem
+# Devise gem for auth
 gem "devise", "~> 4.8.1"
+
+# Byebug gem for debugging
+gem 'byebug', '~> 9.0', '>= 9.0.6'
 
 # Kaminari for pagination
 gem "kaminari"
